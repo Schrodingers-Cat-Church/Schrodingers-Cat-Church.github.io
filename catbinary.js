@@ -10,6 +10,7 @@ function decode() {
 }
 
 function encode() {
+    validateAscii();
     message = document.getElementById("english").value;
     var result = "";
     for (var i = 0; i < message.length; i++) {
@@ -17,4 +18,22 @@ function encode() {
         result += Array(8 - bin.length + 1).join("0") + bin;
     }
     document.getElementById("meowbinary").value = result.replace(/0/g, 'meow').replace(/1/g, 'MEOW');
+}
+
+function validateAscii() {
+    let text = document.getElementById("english").value;
+    for (var i = 0; i < text.length; i++) {
+        if (text.charCodeAt(i) > 127) {
+            text = text.emptyIndex(i);
+        }
+    }
+    document.getElementById("english").value = text;
+}
+
+function validateMeowBinary() {
+
+}
+
+function emptyIndex(index) {
+    return this.substr(0, index) + "" + this.substr(index);
 }
