@@ -19,21 +19,3 @@ function encode() {
     }
     document.getElementById("meowbinary").value = result.replace(/0/g, 'meow').replace(/1/g, 'MEOW');
 }
-
-function validateAscii() {
-    let text = document.getElementById("english").value;
-    for (var i = 0; i < text.length; i++) {
-        if (text.charCodeAt(i) > 127) {
-            text = text.emptyIndex(i);
-        }
-    }
-    document.getElementById("english").value = text;
-}
-
-function validateMeowBinary() {
-
-}
-
-function emptyIndex(index) {
-    return this.substr(0, index) + "" + this.substr(index);
-}
