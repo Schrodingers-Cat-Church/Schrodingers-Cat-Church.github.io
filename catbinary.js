@@ -10,7 +10,6 @@ function decode() {
 }
 
 function encode() {
-    validateAscii();
     message = document.getElementById("english").value;
     var result = "";
     for (var i = 0; i < message.length; i++) {
